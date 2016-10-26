@@ -1,6 +1,5 @@
 //nodeMCU v1.0 (black) with Arduino IDE
 //stream temperature data DS18B20 with 1wire on ESP8266 ESP12-E (nodeMCU v1.0)
-//shin-ajaran.blogspot.com
 //nodemcu pinout https://github.com/esp8266/Arduino/issues/584
 #include <ESP8266WiFi.h>
 #include <OneWire.h>
@@ -15,9 +14,9 @@ OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature DS18B20(&oneWire);
 float prevTemp = 0;
 const char* server = "api.thingspeak.com";
-String apiKey ="2NV3PPG6I5PVJLE0";
-const char* MY_SSID = "LAMPUNG"; 
-const char* MY_PWD = "lampunggeh";
+String apiKey ="API KEY";
+const char* MY_SSID = "SSID"; 
+const char* MY_PWD = "Password";
 int sent = 0;
 void setup() {
   Serial.begin(9600);
@@ -83,7 +82,7 @@ void sendTeperatureTS(float temp)
    client.print(postStr);
    delay(1000);
    
-   }//end if
+   }
    sent++;
  client.stop();
-}//end send
+}
